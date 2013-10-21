@@ -28,6 +28,7 @@
               <Implementation-Vendor-URL>http://code.google.com/p/gerrit/</Implementation-Vendor-URL>
               <Gerrit-ApiType>${Gerrit-ApiType}</Gerrit-ApiType>
               <Gerrit-ApiVersion>${Gerrit-ApiVersion}</Gerrit-ApiVersion>
+              <Gerrit-PluginName>gravatar-avatar-provider</Gerrit-PluginName>
             </manifestEntries>
           </archive>
         </configuration>
