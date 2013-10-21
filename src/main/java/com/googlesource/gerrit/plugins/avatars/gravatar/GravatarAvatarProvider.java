@@ -25,8 +25,6 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import javax.annotation.Nullable;
-
 @Listen
 @Singleton
 public class GravatarAvatarProvider implements AvatarProvider {
@@ -45,8 +43,8 @@ public class GravatarAvatarProvider implements AvatarProvider {
   private final boolean ssl;
 
   @Inject
-  GravatarAvatarProvider(@CanonicalWebUrl @Nullable String canonicalUrl) {
-    ssl = canonicalUrl != null && canonicalUrl.startsWith("https://");
+  GravatarAvatarProvider(@CanonicalWebUrl String canonicalUrl) {
+    ssl = canonicalUrl.startsWith("https://");
   }
 
   @Override
