@@ -10,7 +10,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <Gerrit-ApiType>PLUGIN</Gerrit-ApiType>
-    <Gerrit-ApiVersion>2.8-SNAPSHOT</Gerrit-ApiVersion>
+    <Gerrit-ApiVersion>2.8</Gerrit-ApiVersion>
   </properties>
 
   <build>
@@ -59,7 +59,7 @@
   <repositories>
     <repository>
       <id>gerrit-api-repository</id>
-      <url>https://gerrit-api.commondatastorage.googleapis.com/snapshot/</url>
+      <url>https://gerrit-api.commondatastorage.googleapis.com/release/</url>
     </repository>
   </repositories>
 </project>
