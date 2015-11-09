@@ -15,9 +15,11 @@
 package com.googlesource.gerrit.plugins.avatars.gravatar;
 
 import com.google.gerrit.extensions.annotations.Listen;
+import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.server.IdentifiedUser;
 import com.google.gerrit.server.avatar.AvatarProvider;
 import com.google.gerrit.server.config.CanonicalWebUrl;
+import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
@@ -41,10 +43,15 @@ public class GravatarAvatarProvider implements AvatarProvider {
   }
 
   private final boolean ssl;
+  private final String avatarType;
 
   @Inject
-  GravatarAvatarProvider(@CanonicalWebUrl String canonicalUrl) {
+  GravatarAvatarProvider(@CanonicalWebUrl String canonicalUrl,
+      @PluginName String pluginName,
+      PluginConfigFactory cfgFactory) {
     ssl = canonicalUrl.startsWith("https://");
+    this.avatarType = cfgFactory.getFromGerritConfig(pluginName)
+                                .getString("type", "identicon");
   }
 
   @Override
@@ -75,7 +82,7 @@ public class GravatarAvatarProvider implements AvatarProvider {
     url.append(".jpg");
     // TODO: currently we force the default icon to identicon and the rating
     // to PG. It'd be nice to have these be admin-configurable.
-    url.append("?d=identicon&r=pg");
+    url.append("?d=" + avatarType + "&r=pg");
     if (imageSize > 0) {
       url.append("&s=").append(imageSize);
     }
