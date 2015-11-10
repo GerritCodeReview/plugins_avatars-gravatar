@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d609b2de_bac5d163",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1015537
+      },
+      "writtenOn": "2015-11-10T12:38:38Z",
+      "side": 1,
+      "message": "fixed",
+      "parentUuid": "967d7aef_a89b1be3",
+      "range": {
+        "startLine": 16,
+        "startChar": 41,
+        "endLine": 16,
+        "endChar": 42
+      },
+      "revId": "155c1f0f50373ffa3f8ece1a50d20426427509b1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "967d7aef_c8a84ffb",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "bb142734_39a8ef9a",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1015537
+      },
+      "writtenOn": "2015-11-10T12:38:38Z",
+      "side": 1,
+      "message": "fixed",
+      "parentUuid": "967d7aef_c8a84ffb",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 8
+      },
+      "revId": "155c1f0f50373ffa3f8ece1a50d20426427509b1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "967d7aef_e8a51320",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 1
@@ -59,6 +107,24 @@
       "writtenOn": "2015-11-09T17:43:04Z",
       "side": 1,
       "message": "It would be good to state what the default value is.",
+      "revId": "155c1f0f50373ffa3f8ece1a50d20426427509b1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb142734_19ad2bab",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1015537
+      },
+      "writtenOn": "2015-11-10T12:38:38Z",
+      "side": 1,
+      "message": "Added info about default value.",
+      "parentUuid": "967d7aef_e8a51320",
       "revId": "155c1f0f50373ffa3f8ece1a50d20426427509b1",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
