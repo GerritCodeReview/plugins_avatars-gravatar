@@ -44,6 +44,8 @@ public class GravatarAvatarProvider implements AvatarProvider {
 
   private final boolean ssl;
   private final String avatarType;
+  private final String gravatarUrl;
+  private final String changeAvatarUrl;
 
   @Inject
   GravatarAvatarProvider(@CanonicalWebUrl String canonicalUrl,
@@ -52,6 +54,10 @@ public class GravatarAvatarProvider implements AvatarProvider {
     ssl = canonicalUrl.startsWith("https://");
     this.avatarType = cfgFactory.getFromGerritConfig(pluginName)
                                 .getString("type", "identicon");
+    this.gravatarUrl = cfgFactory.getFromGerritConfig(pluginName)
+                                 .getString("gravatarUrl", "www.gravatar.com/avatar/");
+    this.changeAvatarUrl = cfgFactory.getFromGerritConfig(pluginName)
+                               .getString("changeAvatarUrl", "http://www.gravatar.com");
   }
 
   @Override
@@ -77,7 +83,7 @@ public class GravatarAvatarProvider implements AvatarProvider {
     } else {
       url.append("http://");
     }
-    url.append("www.gravatar.com/avatar/");
+    url.append(gravatarUrl);
     url.append(hex(emailMd5));
     url.append(".jpg");
     // TODO: currently we force the default icon to identicon and the rating
@@ -91,6 +97,6 @@ public class GravatarAvatarProvider implements AvatarProvider {
 
   @Override
   public String getChangeAvatarUrl(IdentifiedUser forUser) {
-    return "http://www.gravatar.com";
+    return changeAvatarUrl;
   }
 }
