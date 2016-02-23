@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02522dad_fc11a9a8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/avatars/gravatar/GravatarAvatarProvider.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2016-02-23T07:20:33Z",
+      "side": 1,
+      "message": "Optional: word change has very special meaning in Gerrit context. And he it\u0027s entirely unrelated to Gerrit change. So may be call this like modifyGravatarUrl or some such.",
+      "range": {
+        "startLine": 59,
+        "startChar": 9,
+        "endLine": 59,
+        "endChar": 18
+      },
+      "revId": "678b077908579f44cecdd345955b3746fe71b6c9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
