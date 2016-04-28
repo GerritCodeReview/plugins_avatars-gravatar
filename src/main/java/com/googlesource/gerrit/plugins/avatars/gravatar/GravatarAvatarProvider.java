@@ -42,7 +42,6 @@ public class GravatarAvatarProvider implements AvatarProvider {
     return r.toString();
   }
 
-  private final boolean ssl;
   private final String avatarType;
   private final String avatarRating;
   private final String gravatarUrl;
@@ -53,17 +52,23 @@ public class GravatarAvatarProvider implements AvatarProvider {
       @CanonicalWebUrl String canonicalUrl,
       @PluginName String pluginName,
       PluginConfigFactory cfgFactory) {
-    ssl = canonicalUrl.startsWith("https://");
     this.avatarType = cfgFactory.getFromGerritConfig(pluginName).getString("type", "identicon");
     this.avatarRating = cfgFactory.getFromGerritConfig(pluginName).getString("rating", "pg");
-    this.gravatarUrl =
-        cfgFactory
-            .getFromGerritConfig(pluginName)
-            .getString("gravatarUrl", "www.gravatar.com/avatar/");
     this.changeAvatarUrl =
         cfgFactory
             .getFromGerritConfig(pluginName)
             .getString("changeAvatarUrl", "http://www.gravatar.com");
+
+    String gravatarUrlCfg =
+        cfgFactory
+            .getFromGerritConfig(pluginName)
+            .getString("gravatarUrl", "www.gravatar.com/avatar/");
+    if (gravatarUrlCfg.matches("^https?://.+")) {
+      this.gravatarUrl = gravatarUrlCfg;
+    } else {
+      this.gravatarUrl =
+          (canonicalUrl.startsWith("https://") ? "https://" : "http://") + gravatarUrlCfg;
+    }
   }
 
   @Override
@@ -81,13 +86,7 @@ public class GravatarAvatarProvider implements AvatarProvider {
     } catch (NoSuchAlgorithmException e) {
       throw new RuntimeException("MD5 digest not supported - required for Gravatar");
     }
-    StringBuilder url = new StringBuilder();
-    if (ssl) {
-      url.append("https://");
-    } else {
-      url.append("http://");
-    }
-    url.append(gravatarUrl);
+    StringBuilder url = new StringBuilder(gravatarUrl);
     url.append(hex(emailMd5));
     url.append(".jpg");
     url.append("?d=" + avatarType + "&r=" + avatarRating);

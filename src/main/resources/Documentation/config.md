@@ -31,7 +31,7 @@ file.
 `plugin.@PLUGIN@.gravatarUrl`
 :	URL that provides the Gravatar API.
 
-	Uses the same protocol (http, https) as gerrit.canonicalWebUrl.
+	Uses provided protocol (http, https) or the same as gerrit.canonicalWebUrl.
 
 	Default: www.gravatar.com/avatar/
 
