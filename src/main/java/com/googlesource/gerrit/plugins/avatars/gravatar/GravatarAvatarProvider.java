@@ -64,6 +64,14 @@ public class GravatarAvatarProvider implements AvatarProvider {
         cfgFactory
             .getFromGerritConfig(pluginName)
             .getString("changeAvatarUrl", "http://www.gravatar.com");
+
+    if (gravatarUrl.matches("^https?://.+")) {
+      this.gravatarUrl = gravatarUrl;
+    } else if (ssl) {
+      this.gravatarUrl = "https://" + gravatarUrl;
+    } else {
+      this.gravatarUrl = "http://" + gravatarUrl;
+    }
   }
 
   @Override
@@ -81,13 +89,7 @@ public class GravatarAvatarProvider implements AvatarProvider {
     } catch (NoSuchAlgorithmException e) {
       throw new RuntimeException("MD5 digest not supported - required for Gravatar");
     }
-    StringBuilder url = new StringBuilder();
-    if (ssl) {
-      url.append("https://");
-    } else {
-      url.append("http://");
-    }
-    url.append(gravatarUrl);
+    StringBuilder url = new StringBuilder(gravatarUrl);
     url.append(hex(emailMd5));
     url.append(".jpg");
     url.append("?d=" + avatarType + "&r=" + avatarRating);
