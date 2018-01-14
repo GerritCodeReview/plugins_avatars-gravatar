@@ -44,6 +44,7 @@ public class GravatarAvatarProvider implements AvatarProvider {
 
   private final boolean ssl;
   private final String avatarType;
+  private final String avatarRating;
   private final String gravatarUrl;
   private final String changeAvatarUrl;
 
@@ -54,6 +55,8 @@ public class GravatarAvatarProvider implements AvatarProvider {
     ssl = canonicalUrl.startsWith("https://");
     this.avatarType = cfgFactory.getFromGerritConfig(pluginName)
                                 .getString("type", "identicon");
+    this.avatarRating = cfgFactory.getFromGerritConfig(pluginName)
+                                .getString("rating", "pg");
     this.gravatarUrl = cfgFactory.getFromGerritConfig(pluginName)
                                  .getString("gravatarUrl", "www.gravatar.com/avatar/");
     this.changeAvatarUrl = cfgFactory.getFromGerritConfig(pluginName)
@@ -86,9 +89,7 @@ public class GravatarAvatarProvider implements AvatarProvider {
     url.append(gravatarUrl);
     url.append(hex(emailMd5));
     url.append(".jpg");
-    // TODO: currently we force the default icon to identicon and the rating
-    // to PG. It'd be nice to have these be admin-configurable.
-    url.append("?d=" + avatarType + "&r=pg");
+    url.append("?d=" + avatarType + "&r=" + avatarRating);
     if (imageSize > 0) {
       url.append("&s=").append(imageSize);
     }
