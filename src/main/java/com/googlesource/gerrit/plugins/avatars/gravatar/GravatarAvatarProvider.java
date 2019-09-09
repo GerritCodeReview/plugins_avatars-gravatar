@@ -65,11 +65,11 @@ public class GravatarAvatarProvider implements AvatarProvider {
 
   @Override
   public String getUrl(IdentifiedUser forUser, int imageSize) {
-    if (forUser.getAccount().getPreferredEmail() == null) {
+    if (forUser.getAccount().preferredEmail() == null) {
       return null;
     }
     final String email =
-        forUser.getAccount().getPreferredEmail().trim().toLowerCase();
+        forUser.getAccount().preferredEmail().trim().toLowerCase();
     final byte[] emailMd5;
     try {
       MessageDigest digest = MessageDigest.getInstance("MD5");
