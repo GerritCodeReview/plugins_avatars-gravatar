@@ -22,7 +22,6 @@ import com.google.gerrit.server.config.CanonicalWebUrl;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -31,8 +30,9 @@ import java.security.NoSuchAlgorithmException;
 @Singleton
 public class GravatarAvatarProvider implements AvatarProvider {
 
-  private static final char[] HEX = {'0', '1', '2', '3', '4', '5', '6', '7',
-      '8', '9', 'a', 'b', 'c', 'd', 'e', 'f',};
+  private static final char[] HEX = {
+    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f',
+  };
 
   private static String hex(byte[] in) {
     StringBuilder r = new StringBuilder(2 * in.length);
@@ -49,18 +49,21 @@ public class GravatarAvatarProvider implements AvatarProvider {
   private final String changeAvatarUrl;
 
   @Inject
-  GravatarAvatarProvider(@CanonicalWebUrl String canonicalUrl,
+  GravatarAvatarProvider(
+      @CanonicalWebUrl String canonicalUrl,
       @PluginName String pluginName,
       PluginConfigFactory cfgFactory) {
     ssl = canonicalUrl.startsWith("https://");
-    this.avatarType = cfgFactory.getFromGerritConfig(pluginName)
-                                .getString("type", "identicon");
-    this.avatarRating = cfgFactory.getFromGerritConfig(pluginName)
-                                .getString("rating", "pg");
-    this.gravatarUrl = cfgFactory.getFromGerritConfig(pluginName)
-                                 .getString("gravatarUrl", "www.gravatar.com/avatar/");
-    this.changeAvatarUrl = cfgFactory.getFromGerritConfig(pluginName)
-                               .getString("changeAvatarUrl", "http://www.gravatar.com");
+    this.avatarType = cfgFactory.getFromGerritConfig(pluginName).getString("type", "identicon");
+    this.avatarRating = cfgFactory.getFromGerritConfig(pluginName).getString("rating", "pg");
+    this.gravatarUrl =
+        cfgFactory
+            .getFromGerritConfig(pluginName)
+            .getString("gravatarUrl", "www.gravatar.com/avatar/");
+    this.changeAvatarUrl =
+        cfgFactory
+            .getFromGerritConfig(pluginName)
+            .getString("changeAvatarUrl", "http://www.gravatar.com");
   }
 
   @Override
@@ -68,8 +71,7 @@ public class GravatarAvatarProvider implements AvatarProvider {
     if (forUser.getAccount().preferredEmail() == null) {
       return null;
     }
-    final String email =
-        forUser.getAccount().preferredEmail().trim().toLowerCase();
+    final String email = forUser.getAccount().preferredEmail().trim().toLowerCase();
     final byte[] emailMd5;
     try {
       MessageDigest digest = MessageDigest.getInstance("MD5");
@@ -77,8 +79,7 @@ public class GravatarAvatarProvider implements AvatarProvider {
     } catch (UnsupportedEncodingException e) {
       throw new RuntimeException("JVM lacks UTF-8 encoding", e);
     } catch (NoSuchAlgorithmException e) {
-      throw new RuntimeException(
-          "MD5 digest not supported - required for Gravatar");
+      throw new RuntimeException("MD5 digest not supported - required for Gravatar");
     }
     StringBuilder url = new StringBuilder();
     if (ssl) {
