@@ -14,9 +14,18 @@ file.
 :	Avatar type in www.gravatar.com service.
 
 	Can be any type supported by the service
-	(404, mm, identicon, monsterid, wavatar, retro, blank, ...).
+	(404, mm, identicon, monsterid, wavatar, retro, robohash, blank, ...).
 
 	Default: identicon
+
+<a id="rating">
+`plugin.@PLUGIN@.rating`
+:	Avatar rating in www.gravatar.com service.
+
+	Can be any rating supported by the service
+	(g, pg, r, x, ...).
+
+	Default: pg
 
 <a id="gravatarUrl">
 `plugin.@PLUGIN@.gravatarUrl`
