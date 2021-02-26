@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2569e356_d9285002",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2021-02-26T09:54:11Z",
+      "side": 1,
+      "message": "Doesn\u0027t build:\n\n  GravatarAvatarProvider.java:69: error: variable gravatarUrl might already have been assigned\n      this.gravatarUrl \u003d gravatarUrl;",
+      "revId": "da8485884d1f0dde6be761760b74694b9883df2f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f138999a_3a6e6158",
