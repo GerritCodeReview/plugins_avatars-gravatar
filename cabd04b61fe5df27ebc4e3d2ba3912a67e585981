@@ -1,13 +1,9 @@
 {
   "checks": {
     "zuul-check:plugins_avatars-gravatar": {
-      "state": "NOT_RELEVANT",
-      "message": "Project has no jobs configured",
-      "url": "https://ci.gerritcodereview.com/t/gerrit/buildset/cf45e6df45284d7bbe9250e5cdee46bb",
-      "started": "2021-03-03T16:30:02Z",
-      "finished": "2021-03-03T16:30:04Z",
+      "state": "NOT_STARTED",
       "created": "2021-03-03T16:30:02Z",
-      "updated": "2021-03-03T16:30:04Z"
+      "updated": "2021-03-03T16:31:23Z"
     }
   }
 }
