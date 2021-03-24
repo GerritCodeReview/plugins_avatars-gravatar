@@ -1,12 +1,13 @@
 {
   "checks": {
     "zuul-check:plugins_avatars-gravatar": {
-      "state": "SCHEDULED",
-      "message": "Change has been enqueued in check",
-      "url": "https://ci.gerritcodereview.com/t/gerrit/status/change/77290,4",
+      "state": "NOT_RELEVANT",
+      "message": "Project has no jobs configured",
+      "url": "https://ci.gerritcodereview.com/t/gerrit/buildset/6015cd4fa9824a00bba68990603097ed",
       "started": "2021-03-24T00:55:19Z",
+      "finished": "2021-03-24T00:55:22Z",
       "created": "2021-03-24T00:55:20Z",
-      "updated": "2021-03-24T00:55:20Z"
+      "updated": "2021-03-24T00:55:22Z"
     }
   }
 }
