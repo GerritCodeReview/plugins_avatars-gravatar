@@ -107,6 +107,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6021f015_a515562f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2021-04-05T11:00:07Z",
+      "side": 1,
+      "message": "You are right. I missed to pin this plugin to checks pipeline in zuul-config repository. Done in change 302163.",
+      "parentUuid": "c1c5a927_0a87abf2",
+      "revId": "da8485884d1f0dde6be761760b74694b9883df2f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ef15a42_56a1db5c",
