@@ -125,6 +125,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbcd26fd_12127281",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2021-04-05T11:47:31Z",
+      "side": 1,
+      "message": "I confirmed, that the checker is defined as expected:\n\n  $ curl --user user:secret \\\n    https://gerrit-review.googlesource.com/plugins/checks/checkers/zuul-check%3Aplugins_avatars-gravatar\n\nreturns as expected:\n\n  {\n\t\"uuid\": \"zuul-check:plugins_avatars-gravatar\",\n\t\"name\": \"Zuul Check Pipeline\",\n\t\"description\": \"Run Zuul jobs on new patchsets\",\n\t\"repository\": \"plugins/avatars-gravatar\",\n\t\"status\": \"ENABLED\",\n\t\"blocking\": [],\n\t\"query\": \"status:open\",\n\t\"created\": \"2021-03-03 16:19:58.000000000\",\n\t\"updated\": \"2021-03-03 16:19:58.000000000\"\n  }",
+      "parentUuid": "6021f015_a515562f",
+      "revId": "da8485884d1f0dde6be761760b74694b9883df2f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ef15a42_56a1db5c",
