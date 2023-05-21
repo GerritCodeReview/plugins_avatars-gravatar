@@ -40,3 +40,9 @@ file.
 :	Link to where the avatar can be changed as displayed in the profile settings.
 
 	Default: http://www.gravatar.com
+
+<a id="useJPG">
+`plugin.@PLUGIN@.useJPG`
+:      Use JPG extension, if false skip extension entirely.
+
+       Default: true
