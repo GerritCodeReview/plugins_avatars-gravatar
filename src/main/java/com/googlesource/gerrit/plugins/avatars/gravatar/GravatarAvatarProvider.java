@@ -47,6 +47,7 @@ public class GravatarAvatarProvider implements AvatarProvider {
   private final String gravatarUrl;
   private final String changeAvatarUrl;
   private final boolean defaultImage;
+  private final boolean useJPG;
 
   @Inject
   GravatarAvatarProvider(
@@ -59,6 +60,7 @@ public class GravatarAvatarProvider implements AvatarProvider {
         cfgFactory
             .getFromGerritConfig(pluginName)
             .getString("changeAvatarUrl", "http://www.gravatar.com");
+    this.useJPG = cfgFactory.getFromGerritConfig(pluginName).getBoolean("useJPG", true);
 
     String gravatarUrlCfg =
         cfgFactory
@@ -98,7 +100,9 @@ public class GravatarAvatarProvider implements AvatarProvider {
 
     StringBuilder url = new StringBuilder(gravatarUrl);
     url.append(emailMd5);
-    url.append(".jpg");
+    if (useJPG) {
+      url.append(".jpg");
+    }
     url.append("?d=" + avatarType + "&r=" + avatarRating);
     if (imageSize > 0) {
       url.append("&s=").append(imageSize);

@@ -37,3 +37,7 @@ file.
 	a default email.
 
 	Default: true
+
+- `plugin.@PLUGIN@.useJPG`: Use JPG extension, if false skip extension entirely.
+
+        Default: true
