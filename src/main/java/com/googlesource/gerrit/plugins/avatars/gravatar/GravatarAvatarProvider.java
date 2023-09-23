@@ -46,6 +46,7 @@ public class GravatarAvatarProvider implements AvatarProvider {
   private final String avatarRating;
   private final String gravatarUrl;
   private final String changeAvatarUrl;
+  private final boolean defaultImage;
 
   @Inject
   GravatarAvatarProvider(
@@ -69,25 +70,35 @@ public class GravatarAvatarProvider implements AvatarProvider {
       this.gravatarUrl =
           (canonicalUrl.startsWith("https://") ? "https://" : "http://") + gravatarUrlCfg;
     }
+
+    this.defaultImage =
+        cfgFactory.getFromGerritConfig(pluginName).getBoolean("defaultImage", false);
   }
 
   @Override
   public String getUrl(IdentifiedUser forUser, int imageSize) {
-    if (forUser.getAccount().preferredEmail() == null) {
+    String preferredEmail = forUser.getAccount().preferredEmail();
+    if (preferredEmail == null && !defaultImage) {
       return null;
     }
-    final String email = forUser.getAccount().preferredEmail().trim().toLowerCase();
-    final byte[] emailMd5;
-    try {
-      MessageDigest digest = MessageDigest.getInstance("MD5");
-      emailMd5 = digest.digest(email.getBytes("UTF-8"));
-    } catch (UnsupportedEncodingException e) {
-      throw new RuntimeException("JVM lacks UTF-8 encoding", e);
-    } catch (NoSuchAlgorithmException e) {
-      throw new RuntimeException("MD5 digest not supported - required for Gravatar");
+
+    String emailMd5;
+    if (preferredEmail != null) {
+      final String email = preferredEmail.trim().toLowerCase();
+      try {
+        MessageDigest digest = MessageDigest.getInstance("MD5");
+        emailMd5 = hex(digest.digest(email.getBytes("UTF-8")));
+      } catch (UnsupportedEncodingException e) {
+        throw new RuntimeException("JVM lacks UTF-8 encoding", e);
+      } catch (NoSuchAlgorithmException e) {
+        throw new RuntimeException("MD5 digest not supported - required for Gravatar");
+      }
+    } else {
+      emailMd5 = "00000000000000000000000000000000";
     }
+
     StringBuilder url = new StringBuilder(gravatarUrl);
-    url.append(hex(emailMd5));
+    url.append(emailMd5);
     url.append(".jpg");
     url.append("?d=" + avatarType + "&r=" + avatarRating);
     if (imageSize > 0) {
