@@ -40,3 +40,10 @@ file.
 :	Link to where the avatar can be changed as displayed in the profile settings.
 
 	Default: http://www.gravatar.com
+
+<a id="defaultImage">
+`plugin.@PLUGIN@.defaultImage`
+:	Whether to have a default image placeholder when the account does not have
+	a default email.
+
+	Default: true
