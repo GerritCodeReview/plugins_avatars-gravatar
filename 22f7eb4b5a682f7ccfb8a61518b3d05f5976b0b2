@@ -22,6 +22,30 @@
       },
       "revId": "22f7eb4b5a682f7ccfb8a61518b3d05f5976b0b2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e5ad8de_80be6b1a",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2023-09-25T17:04:05Z",
+      "side": 1,
+      "message": "\u003e How about having `true` by default? I\u0027m not sure if _steal the photo from the other user_ should be the default behaviour, WDYT?\n\nYou actually have a good point :-)",
+      "parentUuid": "3ea1858a_944e7f64",
+      "range": {
+        "startLine": 49,
+        "startChar": 10,
+        "endLine": 49,
+        "endChar": 15
+      },
+      "revId": "22f7eb4b5a682f7ccfb8a61518b3d05f5976b0b2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
