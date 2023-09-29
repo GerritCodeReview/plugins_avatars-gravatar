@@ -1,12 +1,13 @@
 {
   "checks": {
     "zuul-check:plugins_avatars-gravatar": {
-      "state": "RUNNING",
-      "message": "Jobs have started running",
-      "url": "https://ci.gerritcodereview.com/t/gerrit/status/change/374477,2",
+      "state": "SUCCESSFUL",
+      "message": "Change passed all voting jobs",
+      "url": "https://ci.gerritcodereview.com/t/gerrit/buildset/0dbd051150194992a5e87f5492c2c6de",
       "started": "2023-09-29T09:43:13Z",
+      "finished": "2023-09-29T09:51:02Z",
       "created": "2023-09-29T09:43:13Z",
-      "updated": "2023-09-29T09:43:17Z"
+      "updated": "2023-09-29T09:51:02Z"
     }
   }
 }
