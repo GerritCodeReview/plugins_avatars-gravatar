@@ -1,12 +1,13 @@
 {
   "checks": {
     "zuul-check:plugins_avatars-gravatar": {
-      "state": "SCHEDULED",
-      "message": "Change has been enqueued in check",
-      "url": "https://ci.gerritcodereview.com/t/gerrit/status/change/387354,4",
+      "state": "FAILED",
+      "message": "Change failed",
+      "url": "https://ci.gerritcodereview.com/t/gerrit/buildset/e3ad6d083bc641a181f33ea5b5f3e25c",
       "started": "2023-10-23T20:29:48Z",
+      "finished": "2023-10-23T20:31:28Z",
       "created": "2023-10-23T20:29:48Z",
-      "updated": "2023-10-23T20:31:23Z"
+      "updated": "2023-10-23T20:31:28Z"
     }
   }
 }
