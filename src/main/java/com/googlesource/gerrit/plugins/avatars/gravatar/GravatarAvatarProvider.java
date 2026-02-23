@@ -76,14 +76,15 @@ public class GravatarAvatarProvider implements AvatarProvider {
 
   @Override
   public String getUrl(IdentifiedUser forUser, int imageSize) {
-    String preferredEmail = forUser.getAccount().preferredEmail();
-    if (preferredEmail == null && !defaultImage) {
+    // Use effectiveAvatarEmail() which returns avatarEmail if set, otherwise preferredEmail
+    String avatarEmail = forUser.getAccount().effectiveAvatarEmail();
+    if (avatarEmail == null && !defaultImage) {
       return null;
     }
 
     String emailMd5;
-    if (preferredEmail != null) {
-      final String email = preferredEmail.trim().toLowerCase();
+    if (avatarEmail != null) {
+      final String email = avatarEmail.trim().toLowerCase();
       try {
         MessageDigest digest = MessageDigest.getInstance("MD5");
         emailMd5 = hex(digest.digest(email.getBytes("UTF-8")));
